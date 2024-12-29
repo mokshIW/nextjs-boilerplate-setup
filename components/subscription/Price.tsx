@@ -1,5 +1,6 @@
 import { BadgeCheckIcon } from "lucide-react";
 import React from "react";
+import Checkout from "./Checkout";
 
 export default function Price() {
   // create dummy data for prices
@@ -16,6 +17,7 @@ export default function Price() {
         "Hobby Benefit 5",
       ],
       price: 10,
+      priceId: "price_1QbItsAngKuNGJksvOcK6bbl",
     },
     {
       id: 2,
@@ -29,6 +31,7 @@ export default function Price() {
         "Pro Benefit 5",
       ],
       price: 50,
+      priceId: "price_1QbIu8AngKuNGJksGxBaEUZe",
     },
     {
       id: 3,
@@ -42,6 +45,7 @@ export default function Price() {
         "Enterprise Benefit 5",
       ],
       price: 100,
+      priceId: "price_1QbIuRAngKuNGJksNeRriZTW",
     },
   ];
 
@@ -84,9 +88,7 @@ export default function Price() {
                   </li>
                 ))}
               </ul>
-              <button className="mt-4 md:mt-6 w-full bg-blue-700 text-white font-bold py-2 px-3 md:py-2 md:px-4 lg:py-3 lg:px-6 rounded-lg shadow-md shadow-blue-600 hover:shadow-lime-700 hover:bg-lime-700 hover:scale-105 duration-200 transition">
-                Choose {price.title}
-              </button>
+              <Checkout priceId={price.priceId} />
             </div>
           );
         })}
