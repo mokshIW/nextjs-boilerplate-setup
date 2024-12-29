@@ -6,7 +6,8 @@ import useUser from "@/app/hook/useUser";
 import Image from "next/image";
 import { supabaseBrowser } from "@/lib/supabase/browser";
 import { useQueryClient } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { protectedRoutes } from "@/lib/constants";
 
 const Profile = () => {
   const { isFetching, data } = useUser();
@@ -14,6 +15,8 @@ const Profile = () => {
   const queryClient = useQueryClient();
 
   const router = useRouter();
+
+  // const pathname = usePathname();
 
   if (isFetching) {
     return <></>;
@@ -24,6 +27,10 @@ const Profile = () => {
     queryClient.clear();
     await supabase.auth.signOut();
     router.refresh();
+
+    // if (protectedRoutes.includes(pathname)) {
+    //   router.replace("/auth?next=" + pathname);
+    // }
   };
 
   return (
