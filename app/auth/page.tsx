@@ -19,30 +19,30 @@ const page = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="w-96 rounded-md border p-5 space-y-5 relative bg-slate-900">
-        <div className="flex items-center gap-2">
-          <KeyRound className="ml-2" />
-          <h1 className="text-2xl font-bold">Next + Supabase</h1>
+    <div className="flex items-center justify-center min-h-[90vh] px-4 md:px-8">
+      <div className="w-full max-w-sm md:max-w-md rounded-md border p-4 md:p-5 space-y-4 md:space-y-5 relative bg-slate-900">
+        <div className="flex items-center justify-center gap-2 md:gap-3">
+          <KeyRound className="ml-1 md:ml-2" />
+          <h1 className="text-xl md:text-2xl font-bold">Next + Supabase</h1>
         </div>
-        <p className="text-lg font-semibold text-gray-300">
-          Register/SignIn Today
+        <p className="text-base md:text-lg font-semibold text-gray-300 flex items-center justify-center">
+          Register / SignIn Today
         </p>
-        <div className="flex flex-col items-center justify-center gap-5">
+        <div className="flex flex-col items-center justify-center gap-4 md:gap-5">
           <Button
-            className="w-full flex items-center gap-3"
+            className="w-fit font-bold text-md flex items-center gap-2 md:gap-3"
             variant="outline"
             onClick={() => handleLoginWithOAuth("github")}
           >
-            <FaGithub />
+            <FaGithub className="w-6 h-6 md:w-8 md:h-8" />
             Github
           </Button>
           <Button
-            className="w-full flex items-center gap-3"
+            className="w-fit font-bold text-md flex items-center gap-2 md:gap-3"
             variant="outline"
             onClick={() => handleLoginWithOAuth("google")}
           >
-            <FcGoogle />
+            <FcGoogle className="w-9 h-8 md:w-8 md:h-8" />
             Google
           </Button>
         </div>
