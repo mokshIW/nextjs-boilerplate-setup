@@ -18,7 +18,7 @@ export default function Checkout({ priceId }: { priceId: string }) {
     if (user?.id) {
       setLoading(true);
       const data = JSON.parse(
-        await checkout(user.email, priceId, location.origin + "/success")
+        await checkout(user.email, priceId, location.origin + location.pathname)
       );
 
       const stripe = await loadStripe(

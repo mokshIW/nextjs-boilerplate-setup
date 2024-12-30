@@ -9,6 +9,13 @@ const initUser = {
   email: "",
   image_url: "",
   created_at: "",
+  subscription: {
+    email: "",
+    customer_id: "",
+    subscription_id: "",
+    end_at: "",
+    created_at: "",
+  },
 };
 
 export default function useUser() {
@@ -22,7 +29,7 @@ export default function useUser() {
         // fetch user information
         const { data: user } = await supabase
           .from("profiles")
-          .select("*")
+          .select("*, subscription(*)")
           .eq("id", data.session.user.id)
           .single();
 
