@@ -1,8 +1,12 @@
+"use client";
 import { BadgeCheckIcon } from "lucide-react";
 import React from "react";
 import Checkout from "./Checkout";
+import useUser from "@/app/hook/useUser";
 
 export default function Price() {
+  const { data: user, isLoading } = useUser();
+
   // create dummy data for prices
   const prices = [
     {
@@ -48,6 +52,20 @@ export default function Price() {
       priceId: "price_1QbIuRAngKuNGJksNeRriZTW",
     },
   ];
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (user?.subscription?.customer_id) {
+    return (
+      <div className="flex flex-col items-center justify-center space-y-2">
+        <h1 className="text-3xl font-bold">
+          You are already subscribed to our service!
+        </h1>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full max-w-6xl mx-auto py-4 px-4 lg:py-8 lg:px-0">

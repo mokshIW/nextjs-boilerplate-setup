@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Subscription from "./components/Subscription";
 
 const ProfilePage = () => {
   return (
@@ -11,6 +12,8 @@ const ProfilePage = () => {
           Home
         </Link>
       </Button>
+
+      <Subscription />
     </div>
   );
 };
